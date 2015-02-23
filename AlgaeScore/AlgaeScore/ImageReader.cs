@@ -10,16 +10,20 @@ namespace AlgaeScore
     public class ImageReader
     {
         //Initialize a variable that contains the image
-        Image img1 = @"C:\thumbnail.jpg", @"C:\Users\Alex\Desktop\LEAB_ENV_102011_L.jpg";
+        Bitmap bmp1 = new Bitmap(100, 100);
 
-        //Initialize the array to contain the images
-        Image[] images = new Image[10];
+        //Initialize a list to contain the pixels
+        List<Bitmap> pxls = new List<Bitmap>();
 
-        //Method to add and save images to array
-        public void AddAndSave(Image i)
+        //Method to add and save Bitmap to list
+        public void addPixels()
         {
-            i = img1;
-            images.
+            pxls.Add(bmp1);
         }
+
+        
+
+
+
     }
 }
