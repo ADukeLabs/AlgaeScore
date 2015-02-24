@@ -10,6 +10,7 @@ namespace AlgaeScore
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }

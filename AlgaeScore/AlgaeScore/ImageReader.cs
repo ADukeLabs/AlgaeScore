@@ -4,22 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using BumpKit;
 
 namespace AlgaeScore
 {
     public class ImageReader
     {
-        //Initialize a variable that contains the image
-        Bitmap bmp1 = new Bitmap(100, 100);
-
-        //Initialize a list to contain the pixels
-        List<Bitmap> pxls = new List<Bitmap>();
-
-        //Method to add and save Bitmap to list
-        public void addPixels()
+        public ImageReader()
         {
-            pxls.Add(bmp1);
+
         }
+        
+        public void pixelImage()
+        {
+            var image = Image.FromFile("");
+            using (var context = image.CreateUnsafeContext())
+            {
+                for (var i = 0; i < context.Width; i++)
+                {
+                    for (var e = 0; e < context.Height; e++)
+                    {
+                        var pixel = context.GetRawPixel(i, e);
+                        var average = Convert.ToByte((pixel.Red + pixel.Green + pixel.Blue) / 3d);
+                        context.SetPixel(i, e, pixel.Alpha, average, average, average);
+                    }
+                }
+            }
+        }
+        
+        
+
+
 
         
 
