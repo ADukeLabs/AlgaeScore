@@ -16,9 +16,10 @@ namespace AlgaeScore
 
         }
         
+
         public void createPixelImage()
         {
-            var image = Image.FromFile("");
+            var image = Image.FromFile("LakeErieAlgae.jpg");
             using (var context = image.CreateUnsafeContext())
             for (var i = 0; i < context.Width; i++)
             {
@@ -43,6 +44,15 @@ namespace AlgaeScore
                     {
                         encoder.AddFrame(frame);
                     }
+        }
+
+
+        List<Image> imageList = new List<Image>();
+
+        public void saveImage()
+        {
+            using (var image = Image.FromFile(""))
+                imageList.Add(image);  
         }
         
     }
