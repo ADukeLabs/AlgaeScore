@@ -11,8 +11,8 @@ namespace AlgaeScore
         static void Main(string[] args)
         {
             ImageReader image1 = new ImageReader();
-            image1.createPixelImage();
-            image1.saveImage();
+            image1.PixelImage();
+            //image1.gifEncoder();
         }
     }
 }

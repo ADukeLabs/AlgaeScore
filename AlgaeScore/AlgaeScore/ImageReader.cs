@@ -17,7 +17,7 @@ namespace AlgaeScore
         }
         
 
-        public void createPixelImage()
+        public void PixelImage()
         {
             var image = Image.FromFile("LakeErieAlgae.jpg");
             using (var context = image.CreateUnsafeContext())
@@ -27,33 +27,32 @@ namespace AlgaeScore
                 {
                     var pixel = context.GetRawPixel(i, e);
                     var average = Convert.ToByte((pixel.Red + pixel.Green + pixel.Blue) / 3d);
-                    context.SetPixel(i, e, pixel.Alpha, average, average, average);
+                    context.SetPixel(i, e, pixel.Alpha, average, average, average);  
                 }
+
             }
-            
         }
 
 
-        public void gifEncoder()
-        {
-            using (var image = Image.FromFile(""))
-            using (var gif = File.OpenWrite(""))
-            using (var encoder = new GifEncoder(gif))
-                for (var i = 0; i < 360; i += 10)
-                    using (var frame = image.Rotate(i, false))
-                    {
-                        encoder.AddFrame(frame);
-                    }
-        }
+        //public void gifEncoder()
+        //{
+        //    using (var image = Image.FromFile("LakeErieAlgae.jpg"))
+        //    using (var gif = File.OpenWrite(""))
+        //    using (var encoder = new GifEncoder(gif))
+        //        for (var i = 0; i < 360; i += 10)
+        //            using (var frame = image.Rotate(i, false))
+        //            {
+        //                encoder.AddFrame(frame);
+        //            }
+        //}
 
 
-        List<Image> imageList = new List<Image>();
-
-        public void saveImage()
-        {
-            using (var image = Image.FromFile(""))
-                imageList.Add(image);  
-        }
+        //public void saveImage()
+        //{
+        //    List<Image> imageList = new List<Image>();
+        //    using (var image = Image.FromFile(""))
+        //        imageList.Add(image);  
+        //}
         
     }
 }
