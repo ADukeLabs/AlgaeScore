@@ -33,6 +33,7 @@ namespace AlgaeScore
                 } break; 
 
             }
+            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore", ImageFormat.Jpeg); 
         }
 
 
@@ -48,16 +49,5 @@ namespace AlgaeScore
         //            }
         //}
 
-
-        public void saveAs(Image i)
-        {
-            i.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin", ImageFormat.Jpeg); 
-        }
-
-
-        //internal void saveAs()
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

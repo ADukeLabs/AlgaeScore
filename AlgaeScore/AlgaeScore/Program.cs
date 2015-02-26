@@ -13,7 +13,6 @@ namespace AlgaeScore
             ImageReader image1 = new ImageReader();
             image1.PixelImage();
             //image1.gifEncoder();
-            image1.saveAs();
         }
     }
 }
