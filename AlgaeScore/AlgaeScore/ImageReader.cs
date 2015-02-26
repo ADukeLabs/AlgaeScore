@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Drawing.Imaging;
 using BumpKit;
 
 namespace AlgaeScore
@@ -27,8 +28,9 @@ namespace AlgaeScore
                 {
                     var pixel = context.GetRawPixel(i, e);
                     var average = Convert.ToByte((pixel.Red + pixel.Green + pixel.Blue) / 3d);
-                    context.SetPixel(i, e, pixel.Alpha, average, average, average);  
-                }
+                    context.SetPixel(i, e, pixel.Alpha, average, average, average);
+                    break;
+                } break; 
 
             }
         }
@@ -37,7 +39,7 @@ namespace AlgaeScore
         //public void gifEncoder()
         //{
         //    using (var image = Image.FromFile("LakeErieAlgae.jpg"))
-        //    using (var gif = File.OpenWrite(""))
+        //    using (var gif = File.OpenWrite("LakeErieAlgae.jpg"))
         //    using (var encoder = new GifEncoder(gif))
         //        for (var i = 0; i < 360; i += 10)
         //            using (var frame = image.Rotate(i, false))
@@ -47,12 +49,15 @@ namespace AlgaeScore
         //}
 
 
-        //public void saveImage()
+        public void saveAs(Image i)
+        {
+            i.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin", ImageFormat.Jpeg); 
+        }
+
+
+        //internal void saveAs()
         //{
-        //    List<Image> imageList = new List<Image>();
-        //    using (var image = Image.FromFile(""))
-        //        imageList.Add(image);  
+        //    throw new NotImplementedException();
         //}
-        
     }
 }
