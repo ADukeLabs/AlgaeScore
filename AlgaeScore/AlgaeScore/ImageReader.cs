@@ -16,25 +16,37 @@ namespace AlgaeScore
         {
 
         }
-        
+
 
         public void pixelImage()
         {
-            var image = Image.FromFile("LakeErieAlgae.jpg");
-            using (var context = image.CreateUnsafeContext())
-            for (var i = 0; i < context.Width; i++)
+            using (Image image = Image.FromFile("LakeErieAlgae.jpg"))
             {
-                for (var e = 0; e < context.Height; e++)
+
+
+                using (var context = image.CreateUnsafeContext())
                 {
-                    var pixel = context.GetRawPixel(i, e);
-                    var average = Convert.ToByte((pixel.Red + pixel.Green + pixel.Blue) / 3d);
-                    context.SetPixel(i, e, pixel.Alpha, average, average, average);
-                    break;
-                } 
-            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\bin", ImageFormat.Bmp);
-            break;
+                    for (var w = 0; w < context.Width; w++)
+                    {
+                        for (var h = 0; h < context.Height; h++)
+                        {
+                            var pixel = context.GetRawPixel(w, h);
+                            var average = Convert.ToByte((pixel.Red + pixel.Green + pixel.Blue) / 3d);
+                            context.SetPixel(w, h, pixel.Alpha, average, average, average);
+                            //Detect when a pixel is a certain shade of green
+                            //If it is, set the pixel to 'white'
+                            //Otherwise, 'black'
+                            //Use Photoshop eyedropper tool to take reading of green color
+                            //Use shade of green to make an if statement
+                        }
+
+                    }
+                    
+                }
+                //image.DetectPadding();
+                image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
             }
-            
+
         }
 
         //public void gifEncoder()
