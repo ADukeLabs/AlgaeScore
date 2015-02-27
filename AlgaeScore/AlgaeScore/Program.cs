@@ -10,6 +10,9 @@ namespace AlgaeScore
     {
         static void Main(string[] args)
         {
+            ImageReader image1 = new ImageReader();
+            image1.pixelImage();
+            //image1.saveImageToFolder();
         }
     }
 }
