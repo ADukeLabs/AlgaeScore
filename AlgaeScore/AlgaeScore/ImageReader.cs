@@ -31,7 +31,7 @@ namespace AlgaeScore
                     context.SetPixel(i, e, pixel.Alpha, average, average, average);
                     break;
                 } 
-            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\bin", ImageFormat.Gif);
+            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\bin", ImageFormat.Bmp);
             break;
             }
             
