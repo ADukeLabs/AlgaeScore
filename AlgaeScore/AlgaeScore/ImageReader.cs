@@ -18,7 +18,7 @@ namespace AlgaeScore
         }
         
 
-        public void PixelImage()
+        public void pixelImage()
         {
             var image = Image.FromFile("LakeErieAlgae.jpg");
             using (var context = image.CreateUnsafeContext())
@@ -30,12 +30,12 @@ namespace AlgaeScore
                     var average = Convert.ToByte((pixel.Red + pixel.Green + pixel.Blue) / 3d);
                     context.SetPixel(i, e, pixel.Alpha, average, average, average);
                     break;
-                } break; 
-
+                } 
+            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\bin", ImageFormat.Gif);
+            break;
             }
-            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore", ImageFormat.Jpeg); 
+            
         }
-
 
         //public void gifEncoder()
         //{
@@ -48,6 +48,7 @@ namespace AlgaeScore
         //                encoder.AddFrame(frame);
         //            }
         //}
+
 
     }
 }
