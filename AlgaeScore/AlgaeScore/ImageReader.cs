@@ -41,26 +41,14 @@ namespace AlgaeScore
                         }
 
                     }
-                    
+
                 }
                 //image.DetectPadding();
                 image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
             }
 
+
+
         }
-
-        //public void gifEncoder()
-        //{
-        //    using (var image = Image.FromFile("LakeErieAlgae.jpg"))
-        //    using (var gif = File.OpenWrite("LakeErieAlgae.jpg"))
-        //    using (var encoder = new GifEncoder(gif))
-        //        for (var i = 0; i < 360; i += 10)
-        //            using (var frame = image.Rotate(i, false))
-        //            {
-        //                encoder.AddFrame(frame);
-        //            }
-        //}
-
-
     }
 }
