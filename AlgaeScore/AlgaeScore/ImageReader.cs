@@ -17,13 +17,11 @@ namespace AlgaeScore
 
         }
 
-
+       
         public void pixelImage()
         {
             using (Image image = Image.FromFile("LakeErieAlgae.jpg"))
             {
-
-
                 using (var context = image.CreateUnsafeContext())
                 {
                     for (var w = 0; w < context.Width; w++)
@@ -31,9 +29,24 @@ namespace AlgaeScore
                         for (var h = 0; h < context.Height; h++)
                         {
                             var pixel = context.GetRawPixel(w, h);
+                            if (pixel.Red == 128)
+                            {
+                                if (pixel.Green == 254)
+                                {
+                                    if (pixel.Blue == 121)
+                                    {
+                                        pixel.Equals(Color.White);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                pixel.Equals(Color.Black);
+                            }
+                            
                             var average = Convert.ToByte((pixel.Red + pixel.Green + pixel.Blue) / 3d);
                             context.SetPixel(w, h, pixel.Alpha, average, average, average);
-                            //Detect when a pixel is a certain shade of green
+                            //Detect when a pixel in the image matches the value of the 'green' shade
                             //If it is, set the pixel to 'white'
                             //Otherwise, 'black'
                             //Use Photoshop eyedropper tool to take reading of green color
