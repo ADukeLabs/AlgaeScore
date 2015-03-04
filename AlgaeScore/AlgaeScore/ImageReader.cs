@@ -29,12 +29,9 @@ namespace AlgaeScore
                         {
                             var pixel = context.GetRawPixel(w, h);
                             var average = Convert.ToByte((pixel.Red + pixel.Green + pixel.Blue) / 3d);
-                            if (average >= 89)
+                            if (average >= 89 && average <= 172)
                             {
-                                if (average <= 172)
-                                {
                                     context.SetPixel(w, h, Color.Black);
-                                } 
                             }
                             else
                             {
