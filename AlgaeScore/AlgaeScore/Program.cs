@@ -12,7 +12,6 @@ namespace AlgaeScore
         {
             ImageReader image1 = new ImageReader();
             image1.pixelImage();
-            //image1.saveImageToFolder();
         }
     }
 }
