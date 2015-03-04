@@ -27,19 +27,18 @@ namespace AlgaeScore
                     {
                         for (var h = 0; h < context.Height; h++)
                         {
-                            var pixel = context.GetRawPixel(w, h);
-                            var average = Convert.ToByte((pixel.Red + pixel.Green + pixel.Blue) / 3d);
-                            if (average >= 89)
-                            {
-                                if (average <= 172)
-                                {
-                                    context.SetPixel(w, h, Color.Black);
-                                } 
-                            }
-                            else
+                            BumpKit.UnsafeBitmapContext.Pixel pixel = context.GetRawPixel(w, h);
+                            //var pixel = context.GetRawPixel(w, h); 
+                            
+                            if (pixel.Red >= 35 && pixel.Red <= 114 && pixel.Green >= 99 && pixel.Green <= 238 && pixel.Blue >= 83 && pixel.Blue <= 114)
                             {
                                 context.SetPixel(w, h, Color.White);
                             }
+                            else
+                            {
+                                context.SetPixel(w, h, Color.Black);
+                            }
+                            //var average = Convert.ToByte((pixel.Red + pixel.Green + pixel.Blue) / 3d);
                             //context.SetPixel(w, h, pixel.Alpha, average, average, average);
                             //Detect when a pixel in the image matches the value of the 'green' shade
                             //If it is, set the pixel to 'white'
@@ -55,9 +54,6 @@ namespace AlgaeScore
                 image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
                 //Create histogram of new bitmap file
             }
-
-
-
         }
     }
 }
