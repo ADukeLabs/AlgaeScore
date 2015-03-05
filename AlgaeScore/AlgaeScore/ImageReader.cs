@@ -17,9 +17,11 @@ namespace AlgaeScore
 
         }
 
+        public string imageName = Console.ReadLine();
+        
         public void pixelImage()
         {
-            using (Image image = Image.FromFile("LakeErieAlgae.jpg"))
+            using (Image image = Image.FromFile(imageName + ".jpg"))
             {
                 using (var context = image.CreateUnsafeContext())
                 {
@@ -30,6 +32,11 @@ namespace AlgaeScore
                             BumpKit.UnsafeBitmapContext.Pixel pixel = context.GetRawPixel(w, h);
                             //var pixel = context.GetRawPixel(w, h); 
                             
+                            //if (pixel.Red >= 133 && pixel.Green >= 249 && pixel.Blue >= 116)
+                            //{
+                               
+                            //}
+                            //if (pixel.Red > 18 && pixel.Red < 58 && pixel.Green > 67 && pixel.Green < 123 && pixel.Blue > 71 && pixel.Blue < 81)
                             if (pixel.Red >= 35 && pixel.Red <= 114 && pixel.Green >= 99 && pixel.Green <= 238 && pixel.Blue >= 83 && pixel.Blue <= 114)
                             {
                                 context.SetPixel(w, h, Color.White);
@@ -40,11 +47,6 @@ namespace AlgaeScore
                             }
                             //var average = Convert.ToByte((pixel.Red + pixel.Green + pixel.Blue) / 3d);
                             //context.SetPixel(w, h, pixel.Alpha, average, average, average);
-                            //Detect when a pixel in the image matches the value of the 'green' shade
-                            //If it is, set the pixel to 'white'
-                            //Otherwise, 'black'
-                            //Use Photoshop eyedropper tool to take reading of green color
-                            //Use shade of green to make an if statement
                         }
 
                     }
