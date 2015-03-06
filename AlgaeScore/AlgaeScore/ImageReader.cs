@@ -50,5 +50,41 @@ namespace AlgaeScore
                 //Create histogram of new bitmap file
             }
         }
+
+        //Create int variables called 'whiteScore' and 'blackScore'
+        public int whiteScore = 0;
+        public int blackScore = 0;
+
+        public int scoreReader()
+        {
+            int white = whiteScore;
+            int black = blackScore;
+            //Get instance of new bitmap image.
+            var picture = Bitmap.FromFile("new.bmp");
+            using (var context = picture.CreateUnsafeContext())
+            {
+                for (var w = 0; w < context.Width; w++)
+                {
+                    for (var h = 0; h < context.Height; h++)
+                    {
+                        BumpKit.UnsafeBitmapContext.Pixel pixel = context.GetRawPixel(w, h);
+                        if (pixel.EqualsColor(Color.White))
+                        {
+                            white++;
+                        }
+                        else if (pixel.EqualsColor(Color.Bisque))
+                        {
+                            black++;
+                        }
+                        break;
+                    }
+                }
+                
+            }
+            return white;
+            return black;
+        }
+
+
     }
 }
