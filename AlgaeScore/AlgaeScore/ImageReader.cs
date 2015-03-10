@@ -50,5 +50,9 @@ namespace AlgaeScore
                 //Create histogram of new bitmap file
             }
         }
+
+        
+
+
     }
 }
