@@ -16,10 +16,10 @@ namespace AlgaeScore
         public int whiteScore = 0;
         public int blackScore = 0;
 
-        public int scoreCalculator()
+        public decimal scoreCalculator()
         {
-            int white = whiteScore;
-            int black = blackScore;
+            decimal white = whiteScore;
+            decimal black = blackScore;
             //Get instance of new bitmap image.
             var picture = Bitmap.FromFile("new.bmp");
             using (var context = picture.CreateUnsafeContext())
@@ -39,9 +39,14 @@ namespace AlgaeScore
                         }
                     }
                 }
-                int score = (white / black) * 100;
-                return score;
+                
             }
+            Console.WriteLine(white);
+            Console.WriteLine(black);
+            decimal score = Math.Floor(white / black * 100);
+            return score;
+            //Console.WriteLine(score);
+            //Console.ReadLine();
         }
 
     }

@@ -13,7 +13,9 @@ namespace AlgaeScore
             ImageReader image1 = new ImageReader();
             image1.pixelImage();
             ScoreMaker score1 = new ScoreMaker();
-            score1.scoreCalculator();
+            decimal score = score1.scoreCalculator();
+            Console.WriteLine("Algae Cover Percentage: " + score + "%");
+            Console.ReadKey();
         }
     }
 }
