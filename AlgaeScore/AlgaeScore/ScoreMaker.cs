@@ -20,6 +20,7 @@ namespace AlgaeScore
         {
             decimal white = whiteScore;
             decimal black = blackScore;
+
             //Get instance of new bitmap image.
             var picture = Bitmap.FromFile("new.bmp");
             using (var context = picture.CreateUnsafeContext())
@@ -38,15 +39,12 @@ namespace AlgaeScore
                             black++;
                         }
                     }
-                }
-                
+                }  
             }
-            Console.WriteLine(white);
-            Console.WriteLine(black);
-            decimal score = Math.Floor(white / black * 100);
+            //Formula for percentage
+            // (count / totalcount) * 100);
+            decimal score = Math.Floor((white /(white + black)) * 100);
             return score;
-            //Console.WriteLine(score);
-            //Console.ReadLine();
         }
 
     }
