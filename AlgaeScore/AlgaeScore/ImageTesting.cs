@@ -55,32 +55,26 @@ namespace AlgaeScore
             image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
         }
 
-        //public void blackAndWhite()
-        //{
-        //    using (Image image = Image.FromFile(name + ".jpg"))
-        //    {
-        //            using (var context = image.CreateUnsafeContext())
-        //            {
-        //                for (var w = 0; w < context.Width; w++)
-        //                {
-        //                    for (var h = 0; h < context.Height; h++)
-        //                    {
-        //                        BumpKit.UnsafeBitmapContext.Pixel pixel = context.GetRawPixel(w, h);
-        //                        if (w * h == 50)
-        //                        {
-        //                            context.SetPixel(w, h, Color.Black);
-        //                        }
-        //                        else
-        //                        {
-        //                            context.SetPixel(w, h, Color.White);
-        //                        }
-        //                    }
-        //                }
-        //                image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
-        //            }
-        //    }
+        public void blackAndWhite()
+        {
+            Image image = Image.FromFile(name + ".jpg");
+            using (var context = image.CreateUnsafeContext())
+            {
+                for (var w = 0; w < context.Width; w++)
+                {
+                    for (var h = 0; h < context.Height; h++)
+                    {
+                        //BumpKit.UnsafeBitmapContext.Pixel pixel = context.GetRawPixel(w, h);
+                        for (var i = 0; i < (context.Height + context.Width) / 2; i++)
+                        {
+                            context.SetPixel(w, h, Color.White);
+                        }
+                    }
+                }
+                image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
+             }
+         }
 
 
-        //}
     }
 }

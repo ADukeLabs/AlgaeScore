@@ -40,7 +40,7 @@ namespace AlgaeScore.Tests
         {
             ScoreMaker black_white = new ScoreMaker();
             decimal result = black_white.scoreCalculator();
-            Assert.AreEqual(125, result);
+            Assert.AreEqual(50, result);
         }
     }
 }
