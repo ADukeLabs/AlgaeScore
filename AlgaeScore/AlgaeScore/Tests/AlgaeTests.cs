@@ -22,24 +22,41 @@ namespace AlgaeScore.Tests
         [Test]
         public void ImageIsWhite()
         {
+            //Arrange
             ScoreMaker whiteTest = new ScoreMaker();
-            decimal result = whiteTest.scoreCalculator();
+            Image whiteImage = Bitmap.FromFile("white.bmp");
+            //Act
+            decimal result = whiteTest.scoreCalculator(whiteImage);
+
+            //Assert
             Assert.AreEqual(100, result);
         }
 
         [Test]
         public void ImageIsBlack()
         {
+            //Arrange
             ScoreMaker blackTest = new ScoreMaker();
-            decimal result = blackTest.scoreCalculator();
+            Image blackImage = Bitmap.FromFile("black.bmp");
+
+            //Act
+            decimal result = blackTest.scoreCalculator(blackImage);
+
+            //Assert
             Assert.AreEqual(0, result);
         }
 
         [Test]
         public void ImageIsBlackAndWhite()
         {
+            //Arrange
             ScoreMaker black_white = new ScoreMaker();
-            decimal result = black_white.scoreCalculator();
+            Image blackAndWhite = Bitmap.FromFile("half.bmp");
+
+            //Act
+            decimal result = black_white.scoreCalculator(blackAndWhite); 
+
+            //Assert
             Assert.AreEqual(50, result);
         }
     }

@@ -17,11 +17,10 @@ namespace AlgaeScore
 
         }
 
-        public string name = Console.ReadLine();
 
-        public void whiteImage()
+        public Image whiteImage(Image image)
         {
-            Image image = Image.FromFile(name + ".jpg");
+            image = Image.FromFile("algae_swirls.jpg");
             using (var context = image.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
@@ -33,14 +32,15 @@ namespace AlgaeScore
                     }
                 }
             }
-            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
+            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\white.bmp", ImageFormat.Bmp);
+            return image;
         }
 
 
 
-        public void blackImage()
+        public Image blackImage(Image image)
         {
-            Image image = Image.FromFile(name + ".jpg");
+            image = Image.FromFile("algae_swirls.jpg");
             using (var context = image.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
@@ -52,28 +52,29 @@ namespace AlgaeScore
                     }
                 }
             }
-            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
+            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\black.bmp", ImageFormat.Bmp);
+            return image;
         }
 
-        public void blackAndWhite()
+
+        public Image blackAndWhite(Image image)
         {
-            Image image = Image.FromFile(name + ".jpg");
+            image = Image.FromFile("algae_swirls.jpg");
             using (var context = image.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
                 {
                     for (var h = 0; h < context.Height; h++)
                     {
-                        //BumpKit.UnsafeBitmapContext.Pixel pixel = context.GetRawPixel(w, h);
-                        for (var i = 0; i < (context.Height + context.Width) / 2; i++)
-                        {
-                            context.SetPixel(w, h, Color.White);
-                        }
+                        BumpKit.UnsafeBitmapContext.Pixel pixel = context.GetRawPixel(w, h);
+                        
                     }
                 }
-                image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
-             }
-         }
+            }
+            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\half.bmp", ImageFormat.Bmp);
+            return image;
+        }
+
 
 
     }

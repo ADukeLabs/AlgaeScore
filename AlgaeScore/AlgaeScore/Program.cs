@@ -10,16 +10,12 @@ namespace AlgaeScore
     {
         static void Main(string[] args)
         {
-            ImageReader image1 = new ImageReader();
-            image1.pixelImage();
-            //ImageTesting test1 = new ImageTesting();
-            //test1.whiteImage();
-            //test1.blackImage();
-            //test1.blackAndWhite();
+            //ImageReader image1 = new ImageReader();
+            //image1.pixelImage();
+            ImageTesting test1 = new ImageTesting();
             ScoreMaker score1 = new ScoreMaker();
-            decimal score = score1.scoreCalculator();
-            Console.WriteLine("Algae Bloom Score: " + score + "%");
-            Console.ReadKey();
+            //Console.WriteLine("Algae Bloom Score: " + score1 + "%");
+            //Console.ReadKey();
         }
     }
 }
