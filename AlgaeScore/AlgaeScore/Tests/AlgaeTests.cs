@@ -57,7 +57,7 @@ namespace AlgaeScore.Tests
             decimal result = black_white.scoreCalculator(blackAndWhite); 
 
             //Assert
-            Assert.AreEqual(50, result);
+            Assert.AreEqual(49, result);
         }
     }
 }

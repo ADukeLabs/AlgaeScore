@@ -38,9 +38,9 @@ namespace AlgaeScore
 
 
 
-        public Image blackImage(Image image)
+        public Image blackImage()
         {
-            image = Image.FromFile("algae_swirls.jpg");
+            Image image = Image.FromFile("algae_swirls.jpg");
             using (var context = image.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
@@ -57,16 +57,24 @@ namespace AlgaeScore
         }
 
 
-        public Image blackAndWhite(Image image)
+        public Image blackAndWhite()
         {
-            image = Image.FromFile("algae_swirls.jpg");
+            Image image = Image.FromFile("algae_swirls.jpg");
             using (var context = image.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
                 {
                     for (var h = 0; h < context.Height; h++)
                     {
-                        BumpKit.UnsafeBitmapContext.Pixel pixel = context.GetRawPixel(w, h);
+                        var halfPixels = context.Height / 2;
+                        if (h <= halfPixels)
+                        {
+                            context.SetPixel(w, h, Color.Black);
+                        }
+                        else
+                        {
+                            context.SetPixel(w, h, Color.White);
+                        }
                         
                     }
                 }

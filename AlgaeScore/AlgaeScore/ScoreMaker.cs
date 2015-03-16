@@ -12,9 +12,11 @@ namespace AlgaeScore
 {
     public class ScoreMaker
     {
+
         //Create int variables called 'whiteScore' and 'blackScore'
         public int whiteScore = 0;
         public int blackScore = 0;
+        private ImageTesting test1;
 
         public decimal scoreCalculator(Image image)
         {

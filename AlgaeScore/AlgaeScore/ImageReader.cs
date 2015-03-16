@@ -19,9 +19,9 @@ namespace AlgaeScore
 
         public string imageName = Console.ReadLine();
 
-        public void pixelImage()
+        public Image pixelImage(Image image)
         {
-            Image image = Image.FromFile(imageName + ".jpg");
+            image = Image.FromFile(imageName + ".jpg");
             using (var context = image.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
@@ -41,6 +41,7 @@ namespace AlgaeScore
                 }
             }
             image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
+            return image;
         }
 
 
