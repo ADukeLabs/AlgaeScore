@@ -24,7 +24,8 @@ namespace AlgaeScore
             decimal black = blackScore;
 
             //Get instance of new bitmap image.
-            Image picture = image;
+            //Image picture = image;
+            var picture = Bitmap.FromFile("new.bmp");
             using (var context = picture.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
