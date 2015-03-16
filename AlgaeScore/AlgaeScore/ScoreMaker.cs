@@ -12,15 +12,19 @@ namespace AlgaeScore
 {
     public class ScoreMaker
     {
+
         //Create int variables called 'whiteScore' and 'blackScore'
         public int whiteScore = 0;
         public int blackScore = 0;
+        private ImageTesting test1;
 
-        public decimal scoreCalculator()
+        public decimal scoreCalculator(Image image)
         {
             decimal white = whiteScore;
             decimal black = blackScore;
+
             //Get instance of new bitmap image.
+            //Image picture = image;
             var picture = Bitmap.FromFile("new.bmp");
             using (var context = picture.CreateUnsafeContext())
             {
@@ -38,15 +42,12 @@ namespace AlgaeScore
                             black++;
                         }
                     }
-                }
-                
+                }  
             }
-            Console.WriteLine(white);
-            Console.WriteLine(black);
-            decimal score = Math.Floor(white / black * 100);
+            //Formula for percentage
+            // (count / totalcount) * 100);
+            decimal score = Math.Floor((white / (white + black)) * 100);
             return score;
-            //Console.WriteLine(score);
-            //Console.ReadLine();
         }
 
     }
