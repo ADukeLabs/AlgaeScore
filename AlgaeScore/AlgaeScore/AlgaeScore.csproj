@@ -49,10 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImageReader.cs" />
-    <Compile Include="ImageTesting.cs" />
+    <Compile Include="Tests\ImageTesting.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScoreMaker.cs" />
+    <Compile Include="Tests\ScoreTesting.cs" />
     <Compile Include="Tests\AlgaeTests.cs" />
   </ItemGroup>
   <ItemGroup>

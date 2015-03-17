@@ -19,9 +19,9 @@ namespace AlgaeScore
 
         public string imageName = Console.ReadLine();
 
-        public Image pixelImage(Image image)
+        public Image pixelImage()
         {
-            image = Image.FromFile(imageName + ".jpg");
+            var image = Image.FromFile(imageName + ".jpg");
             using (var context = image.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
