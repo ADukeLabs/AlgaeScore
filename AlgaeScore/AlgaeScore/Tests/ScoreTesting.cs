@@ -10,22 +10,21 @@ using BumpKit;
 
 namespace AlgaeScore
 {
-    public class ScoreMaker
+    public class ScoreTesting
     {
-
         //Create int variables called 'whiteScore' and 'blackScore'
         public int whiteScore = 0;
         public int blackScore = 0;
         //private ImageTesting test1;
 
-        public decimal scoreCalculator()
+        public decimal scoreCalculator(Image image)
         {
             decimal white = whiteScore;
             decimal black = blackScore;
 
             //Get instance of new bitmap image.
-            //Image picture = image;
-            var picture = Bitmap.FromFile("new.bmp");
+            Image picture = image;
+            //var picture = Bitmap.FromFile(image);
             using (var context = picture.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
@@ -42,13 +41,12 @@ namespace AlgaeScore
                             black++;
                         }
                     }
-                }  
+                }
             }
             //Formula for percentage
             // (count / totalcount) * 100);
             decimal score = Math.Floor((white / (white + black)) * 100);
             return score;
         }
-
     }
 }

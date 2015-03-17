@@ -17,7 +17,6 @@ namespace AlgaeScore
 
         }
 
-
         public Image whiteImage(Image image)
         {
             image = Image.FromFile("algae_swirls.jpg");
