@@ -29,5 +29,7 @@ namespace ASWebApp.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<ASWebApp.Models.Picture> Pictures { get; set; }
     }
 }
