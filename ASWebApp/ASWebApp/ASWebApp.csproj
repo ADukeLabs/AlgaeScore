@@ -191,8 +191,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImageControllers\ImageReader.cs" />
-    <Compile Include="Controllers\ImageControllers\ScoreReader.cs" />
+    <Compile Include="Controllers\ImageLogic\ImageReader.cs" />
+    <Compile Include="Controllers\ImageLogic\ScoreReader.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PicturesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201503230459244_AlgaeScoreWeb.cs" />
     <Compile Include="Migrations\201503230459244_AlgaeScoreWeb.Designer.cs">
       <DependentUpon>201503230459244_AlgaeScoreWeb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503270220035_Updated.cs" />
+    <Compile Include="Migrations\201503270220035_Updated.Designer.cs">
+      <DependentUpon>201503270220035_Updated.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -293,6 +297,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201503230459244_AlgaeScoreWeb.resx">
       <DependentUpon>201503230459244_AlgaeScoreWeb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503270220035_Updated.resx">
+      <DependentUpon>201503270220035_Updated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
