@@ -15,7 +15,6 @@ namespace ASWebApp.Migrations
                         ImageName = c.String(),
                         ImageText = c.String(),
                         Image = c.Binary(),
-                        FileType = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

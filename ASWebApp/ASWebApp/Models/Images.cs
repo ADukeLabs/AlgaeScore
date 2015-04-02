@@ -14,7 +14,6 @@ namespace ASWebApp.Models
         public int Id { get; set; }
         public string ImageName { get; set; }
         public string ImageText { get; set; }
-        public HttpPostedFileBase Image { get; set; }
-        public FileType FileType { get; set; }
+        public byte[] Image { get; set; }
     }
 }

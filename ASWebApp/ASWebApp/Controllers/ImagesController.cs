@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 using ASWebApp.Models;
 
 namespace ASWebApp.Controllers
@@ -47,16 +47,30 @@ namespace ASWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ImageName,ImageText,Image,FileType")] Images images)
+        public ActionResult Create([Bind(Include = "Id,ImageName,ImageText,Image")] Images images, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
-                //if (images.Image.ContentLength > 0)
-                //{
-                //    var FileName = Path.GetFileName(images.Image.FileName);
-                //    var path = Path.Combine(Server.MapPath());
-                //    images.Image.SaveAs(path);
-                //}
+                string filename = "";
+                byte[] bytes;
+                int BytesToRead;
+                int numBytesRead;
+
+                if (file != null)
+                {
+                    filename = Path.GetFileName(file.FileName);
+                    bytes = new byte[file.ContentLength];
+                    BytesToRead = (int)file.ContentLength;
+                    numBytesRead = 0;
+                    while (BytesToRead > 0)
+                    {
+                        int n = file.InputStream.Read(bytes, BytesToRead, numBytesRead);
+                        if (n == 0) break;
+                        numBytesRead += n;
+                        BytesToRead -= n;
+                    }
+                    images.Image = bytes;
+                }
                 db.Pictures.Add(images);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -85,7 +99,7 @@ namespace ASWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ImageName,ImageText,Image,FileType")] Images images)
+        public ActionResult Edit([Bind(Include = "Id,ImageName,ImageText,Image")] Images images)
         {
             if (ModelState.IsValid)
             {
