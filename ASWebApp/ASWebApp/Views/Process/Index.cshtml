@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>Index</h2>
+
+@ViewBag.Images
+@foreach (var item in ViewBag.Images)
+{
+    <span>@item</span>
+}
+
+
+@*<div id="Algae Images">
+    <img src="@ViewBag.Images" alt="Algae Sat Images" />
+</div>*@

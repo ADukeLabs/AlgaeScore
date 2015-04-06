@@ -35,7 +35,7 @@ namespace ASWebApp.Controllers.ImageControllers
                     }
                 }
             }
-            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
+            image.Save("~Content/Images/new, ImageFormat.Bmp");
             return image;
         }
 
