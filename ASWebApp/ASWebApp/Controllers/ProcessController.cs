@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using BumpKit;
 using ASWebApp.Models;
+using ASWebApp.Controllers.ImageControllers;
 
 
 
@@ -36,70 +37,28 @@ namespace ASWebApp.Controllers
         //Display a sigle image from the index page in a view
         //TODO Have button to trigger black and white action
         
-        public ActionResult Display(ImageViewModel file)
-        {
+        //public Image Display(string file)
+        //{
+        //    file = "algae_swirls";
+        //    return file;
+        //}
 
-            file = new ImageViewModel { Name = "AlgaeSwirls", Image = "/Images/algae_swirls.jpg" };
-            return View(file);       
+        
+        public ActionResult ColorImage()
+        {
+            ImageReader colorImg = new ImageReader();
+            colorImg.GetImage();
+            return View();
         }
 
-
-        public ActionResult blackAndWhite(ImageViewModel file)
+        public ActionResult blackAndWhite()
         {
-            file = new ImageViewModel { Name = "AlgaeSwirls", Image = "/Images/algae_swirls.jpg" };
-            var image = Image.FromFile(file.Image);
-            using (var context = image.CreateUnsafeContext())
-            {
-                for (var w = 0; w < context.Width; w++)
-                {
-                    for (var h = 0; h < context.Height; h++)
-                    {
-                        BumpKit.UnsafeBitmapContext.Pixel pixel = context.GetRawPixel(w, h);
-                        if (pixel.Red >= 35 && pixel.Red <= 114 && pixel.Green >= 99 && pixel.Green <= 238 && pixel.Blue >= 83 && pixel.Blue <= 114)
-                        {
-                            context.SetPixel(w, h, Color.White);
-                        }
-                        else
-                        {
-                            context.SetPixel(w, h, Color.Black);
-                        }
-                    }
-                }
-            }
-            image.Save("~Images/new, ImageFormat.Bmp");
-            //return image;
-            return View(image);
+            ImageReader black_white = new ImageReader();
+            black_white.GetImage();
+            black_white.pixelImage();
+            return View();
         }
 
-        public ActionResult Score()
-        {
-            int whiteScore = 0;
-            int blackScore = 0;
-
-            decimal white = whiteScore;
-            decimal black = blackScore;
-
-            var picture = Bitmap.FromFile("new.bmp");
-            using (var context = picture.CreateUnsafeContext())
-            {
-                for (var w = 0; w < context.Width; w++)
-                {
-                    for (var h = 0; h < context.Height; h++)
-                    {
-                        BumpKit.UnsafeBitmapContext.Pixel pixel = context.GetRawPixel(w, h);
-                        if (pixel.EqualsColor(Color.White))
-                        {
-                            white++;
-                        }
-                        else if (pixel.EqualsColor(Color.Black))
-                        {
-                            black++;
-                        }
-                    }
-                }
-            }
-            decimal score = Math.Floor((white / (white + black)) * 100);
-            return View(score);
-        }
+        
     }
 }
