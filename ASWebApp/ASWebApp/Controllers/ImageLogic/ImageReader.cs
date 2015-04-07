@@ -35,7 +35,7 @@ namespace ASWebApp.Controllers.ImageControllers
                     }
                 }
             }
-            image.Save("~Content/Images/new, ImageFormat.Bmp");
+            image.Save("~Images/new, ImageFormat.Bmp");
             return image;
         }
 

@@ -193,7 +193,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageLogic\ImageReader.cs" />
     <Compile Include="Controllers\ImageLogic\ScoreReader.cs" />
-    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProcessController.cs" />
     <Compile Include="Global.asax.cs">
@@ -296,10 +295,11 @@
     <Content Include="Views\Images\Index.cshtml" />
     <Content Include="Views\Images\CreateEx.cshtml" />
     <Content Include="Views\Process\Index.cshtml" />
+    <Content Include="Views\Process\Display.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

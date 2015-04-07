@@ -1,17 +1,17 @@
-﻿
+﻿@model List<ASWebApp.Models.ImageViewModel>
 @{
     ViewBag.Title = "index";
 }
 
 <h2>Index</h2>
 
-@ViewBag.Images
-@foreach (var item in ViewBag.Images)
+
+@foreach (var item in Model)
 {
-    <span>@item</span>
+    <img src="@item.Image" alt="Algae Images" />
+    //TODO Make an action link to points to a new view of one image
+
+    @*<li>
+        @Html.ActionLink("")
+    </li>*@
 }
-
-
-@*<div id="Algae Images">
-    <img src="@ViewBag.Images" alt="Algae Sat Images" />
-</div>*@

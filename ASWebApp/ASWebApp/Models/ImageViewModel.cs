@@ -7,8 +7,7 @@ namespace ASWebApp.Models
 {
     public class ImageViewModel
     {
-        public string ImageName { get; set; }
-        public string ImageText { get; set; }
-        public HttpPostedFileBase Image { get; set; }
+        public string Name { get; set; }
+        public string Image { get; set; }
     }
 }
