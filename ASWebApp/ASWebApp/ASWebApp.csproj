@@ -296,6 +296,7 @@
     <Content Include="Views\Images\CreateEx.cshtml" />
     <Content Include="Views\Process\Index.cshtml" />
     <Content Include="Views\Process\Display.cshtml" />
+    <Content Include="Views\Process\blackAndWhite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

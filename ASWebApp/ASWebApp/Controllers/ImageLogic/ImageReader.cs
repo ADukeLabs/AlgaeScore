@@ -14,6 +14,7 @@ namespace ASWebApp.Controllers.ImageControllers
     public class ImageReader
     {
         public string imageName = Console.ReadLine();
+
         public Image pixelImage()
         {
             var image = Image.FromFile(imageName + ".jpg");
