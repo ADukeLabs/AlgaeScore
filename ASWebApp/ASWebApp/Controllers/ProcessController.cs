@@ -25,39 +25,40 @@ namespace ASWebApp.Controllers
         // GET: Process
         public ActionResult Index()
         {
-            List<ImageViewModel> imagePaths = new List<ImageViewModel>();
-            imagePaths.Add(new ImageViewModel {Name = "AlgaeSwirls", Image = "/Images/algae_swirls.jpg" });
-            imagePaths.Add(new ImageViewModel {Name = "LakeErieAlgae", Image = "/Images/LakeErieAlgae.jpg" });
-            imagePaths.Add(new ImageViewModel {Name = "NorthSea", Image = "/Images/NorthSeaAlgae.jpg" });
-            imagePaths.Add(new ImageViewModel {Name = "SN_Algae", Image = "/Images/sn_algae.jpg" });
+            //List<ImageViewModel> imagePaths = new List<ImageViewModel>();
+            //imagePaths.Add(new ImageViewModel {Name = "AlgaeSwirls", Image = "/Content/Images/algae_swirls.jpg" });
+            //imagePaths.Add(new ImageViewModel {Name = "LakeErieAlgae", Image = "/Content/Images/LakeErieAlgae.jpg" });
+            //imagePaths.Add(new ImageViewModel {Name = "NorthSea", Image = "/Content/Images/NorthSeaAlgae.jpg" });
+            //imagePaths.Add(new ImageViewModel {Name = "SN_Algae", Image = "/Content/Images/sn_algae.jpg" });
+            //return View(imagePaths);
+
+            List<string> imagePaths = new List<string>();
+            imagePaths.Add("/Content/Images/algae_swirls.jpg");
+            imagePaths.Add("/Content/Images/LakeErieAlgae.jpg");
+            imagePaths.Add("/Content/Images/NorthSeaAlgae.jpg");
+            imagePaths.Add("/Content/Images/sn_algae.jpg");
             return View(imagePaths);
         }
 
-        
-        //Display a sigle image from the index page in a view
-        //TODO Have button to trigger black and white action
-        
-        //public Image Display(string file)
+        public ActionResult Home()
+        {
+            return View();
+        }
+
+        public ActionResult ColorImage(string name)
+        {
+            var dir = Server.MapPath("/Content/Images");
+            var path = Path.Combine(dir, name + ".jpg");
+            return base.File(path, "image/jpeg");    
+        }
+
+        //public ActionResult blackAndWhite()
         //{
-        //    file = "algae_swirls";
-        //    return file;
+        //    ImageReader black_white = new ImageReader();
+        //    black_white.GetImage();
+        //    black_white.pixelImage();
+        //    return View();
         //}
-
-        
-        public ActionResult ColorImage()
-        {
-            ImageReader colorImg = new ImageReader();
-            colorImg.GetImage();
-            return View();
-        }
-
-        public ActionResult blackAndWhite()
-        {
-            ImageReader black_white = new ImageReader();
-            black_white.GetImage();
-            black_white.pixelImage();
-            return View();
-        }
 
         
     }

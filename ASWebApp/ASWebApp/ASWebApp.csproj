@@ -297,11 +297,13 @@
     <Content Include="Views\Process\Index.cshtml" />
     <Content Include="Views\Process\Display.cshtml" />
     <Content Include="Views\Process\blackAndWhite.cshtml" />
-    <Content Include="Views\Process\ColorImage.cshtml" />
+    <Content Include="Views\Process\Image.cshtml" />
+    <Content Include="Views\Process\GetImage.cshtml" />
+    <Content Include="Views\Process\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
+    <Folder Include="Content\Images\" />
     <Folder Include="Views\ImageFile\" />
   </ItemGroup>
   <ItemGroup>
