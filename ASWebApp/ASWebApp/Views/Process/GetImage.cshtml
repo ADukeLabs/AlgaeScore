@@ -1,0 +1,10 @@
+﻿@Model List<string></string>
+@{
+    ViewBag.Title = "GetImage";
+}
+
+<h2>Get Image</h2>
+    @foreach (var item in Model)
+    {
+        <img src=@item />
+    }

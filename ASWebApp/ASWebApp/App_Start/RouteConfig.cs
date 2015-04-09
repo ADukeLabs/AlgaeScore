@@ -14,6 +14,12 @@ namespace ASWebApp
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name:"Process",
+                url: "{controller}/{action}/{name}",
+                defaults: new { controller = "Process", action = "Home", name = "algae_swirls" }
+                );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

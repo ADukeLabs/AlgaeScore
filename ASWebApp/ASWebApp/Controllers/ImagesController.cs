@@ -47,36 +47,29 @@ namespace ASWebApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ImageName,ImageText,Image")] Images images, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "ImageName,ImageText,Image")] ImageViewModel razorImage)
         {
             if (ModelState.IsValid)
             {
-                string filename = "";
-                byte[] bytes;
-                int BytesToRead;
-                int numBytesRead;
-
-                if (file != null)
+                if (razorImage.Image.ContentLength > 0)
                 {
-                    filename = Path.GetFileName(file.FileName);
-                    bytes = new byte[file.ContentLength];
-                    BytesToRead = (int)file.ContentLength;
-                    numBytesRead = 0;
-                    while (BytesToRead > 0)
-                    {
-                        int n = file.InputStream.Read(bytes, BytesToRead, numBytesRead);
-                        if (n == 0) break;
-                        numBytesRead += n;
-                        BytesToRead -= n;
-                    }
-                    images.Image = bytes;
+                    //TODO: Change path to save to Azure blob storage.
+                    var fileName = Path.GetFileName(razorImage.Image.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/Images"), fileName);
+                    razorImage.Image.SaveAs(path);
+
+                    Images dbImage = new Images();
+                    dbImage.ImageName = razorImage.ImageName;
+                    dbImage.ImageText = razorImage.ImageText;
+                    dbImage.ImagePath = path;
+                    db.Pictures.Add(dbImage);
+                    db.SaveChanges();
                 }
-                db.Pictures.Add(images);
-                db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
-            return View(images);
+            return View(razorImage);
         }
 
         // GET: Images/Edit/5

@@ -193,8 +193,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageLogic\ImageReader.cs" />
     <Compile Include="Controllers\ImageLogic\ScoreReader.cs" />
-    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProcessController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -213,6 +213,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ImageViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Images.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -292,9 +293,19 @@
     <Content Include="Views\Images\Details.cshtml" />
     <Content Include="Views\Images\Edit.cshtml" />
     <Content Include="Views\Images\Index.cshtml" />
+    <Content Include="Views\Images\CreateEx.cshtml" />
+    <Content Include="Views\Process\Index.cshtml" />
+    <Content Include="Views\Process\Display.cshtml" />
+    <Content Include="Views\Process\blackAndWhite.cshtml" />
+    <Content Include="Views\Process\Image.cshtml" />
+    <Content Include="Views\Process\GetImage.cshtml" />
+    <Content Include="Views\Process\Home.cshtml" />
+    <Content Include="Views\Process\ColorImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
+    <Folder Include="Views\ImageFile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
