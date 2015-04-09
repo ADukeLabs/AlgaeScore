@@ -47,9 +47,9 @@ namespace ASWebApp.Controllers
 
         public ActionResult ColorImage(string name)
         {
-            var dir = Server.MapPath("/Content/Images");
-            var path = Path.Combine(dir, name + ".jpg");
-            return base.File(path, "image/jpeg");    
+            var dir = Server.MapPath("~/Content/Images");
+            var image = Path.Combine(dir, name + ".jpg");
+            return File(image, "image/jpeg");    
         }
 
         //public ActionResult blackAndWhite()
