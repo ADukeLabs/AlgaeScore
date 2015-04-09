@@ -19,19 +19,12 @@ namespace ASWebApp.Controllers.ImageControllers
             
         }
 
-        public Image GetImage()
-        {
-            var newImage = Image.FromFile("~algae_swirls.jpg");
-            return newImage;
-        }
 
-        //public string imageName = Console.ReadLine();
+        public string imageName = Console.ReadLine(); 
 
         public Image pixelImage()
         {
-
-            //var image = (imageName + ".jpg");
-            var image = GetImage();
+            var image = Image.FromFile(imageName + ".jpg");
             using (var context = image.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
@@ -50,7 +43,7 @@ namespace ASWebApp.Controllers.ImageControllers
                     }
                 }
             }
-            image.Save("~Images/new, ImageFormat.Bmp");
+            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\AlgaeScore\AlgaeScore\bin\Debug\new.bmp", ImageFormat.Bmp);
             return image;
         }
 

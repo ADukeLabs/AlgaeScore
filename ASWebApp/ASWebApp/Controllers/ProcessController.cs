@@ -40,9 +40,15 @@ namespace ASWebApp.Controllers
             return View(imagePaths);
         }
 
-        public ActionResult Home()
+        public ActionResult DefaultHome()
         {
-            return View();
+            return View("Home");
+        }
+
+        public ActionResult Home(string name)
+        {
+            string fileUrl = "/Content/Images/" + name + ".jpg";
+            return View((object)fileUrl);
         }
 
         public ActionResult ColorImage(string name)
@@ -52,12 +58,11 @@ namespace ASWebApp.Controllers
             return File(image, "image/jpeg");    
         }
 
-        //public ActionResult blackAndWhite()
+        //public ActionResult blackAndWhite(string name)
         //{
-        //    ImageReader black_white = new ImageReader();
-        //    black_white.GetImage();
-        //    black_white.pixelImage();
-        //    return View();
+        //    var dir = Server.MapPath("~/Content/Images");
+        //    var image = Path.Combine(dir, name + ".jpg");
+
         //}
 
         
