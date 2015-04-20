@@ -18,10 +18,6 @@ namespace ASWebApp.Controllers
 {
     public class ProcessController : Controller
     {
-
-        //Put image file paths to list of strings
-        //Pass files to razor page
-
         // GET: Process
         public ActionResult Index()
         {
@@ -47,23 +43,35 @@ namespace ASWebApp.Controllers
 
         public ActionResult Home(string name)
         {
-            string fileUrl = "/Content/Images/" + name + ".jpg";
-            return View((object)fileUrl);
+            //string colorUrl = "/Process/colorimage/" + name;
+            //string blackWhiteUrl = "/Process/blackandwhite/" + name;
+            var newModel = new ImageViewModel();
+            newModel.Image1 = name;
+            newModel.Image2 = name;
+            return View(newModel);
         }
 
-        public ActionResult ColorImage(string name)
+        //public ActionResult Home(string name)
+        //{
+        //    string fileUrl = "/Content/Images/" + name + ".jpg";
+        //    return View((object)fileUrl);
+        //}
+
+        public FilePathResult ColorImage(string name)
         {
             var dir = Server.MapPath("~/Content/Images");
-            var image = Path.Combine(dir, name + ".jpg");
-            return File(image, "image/jpeg");    
+            var imagePath = Path.Combine(dir, name + ".jpg");
+            return File(imagePath, "image/jpeg");
         }
 
-        //public ActionResult blackAndWhite(string name)
-        //{
-        //    var dir = Server.MapPath("~/Content/Images");
-        //    var image = Path.Combine(dir, name + ".jpg");
-
-        //}
+        public FilePathResult blackAndWhite(string name)
+        {
+            var dir = Server.MapPath("~/Content/Images");
+            var imagePath = Path.Combine(dir, name + ".jpg");
+            ImageReader img1 = new ImageReader();
+            img1.pixelImage(imagePath);
+            return File("~/Content/Images/new.bmp", "image/bmp");
+        }
 
         
     }
