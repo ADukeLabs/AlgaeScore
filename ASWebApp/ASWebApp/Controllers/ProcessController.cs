@@ -18,10 +18,6 @@ namespace ASWebApp.Controllers
 {
     public class ProcessController : Controller
     {
-
-        //Put image file paths to list of strings
-        //Pass files to razor page
-
         // GET: Process
         public ActionResult Index()
         {
@@ -40,26 +36,49 @@ namespace ASWebApp.Controllers
             return View(imagePaths);
         }
 
-        public ActionResult Home()
+        public ActionResult DefaultHome()
         {
-            return View();
+            return View("Home");
         }
 
-        public ActionResult ColorImage(string name)
+        public ActionResult Home(string name)
         {
-            var dir = Server.MapPath("~/Content/Images");
-            var image = Path.Combine(dir, name + ".jpg");
-            return File(image, "image/jpeg");    
+            //string colorUrl = "/Process/colorimage/" + name;
+            //string blackWhiteUrl = "/Process/blackandwhite/" + name;
+            var newModel = new ImageViewModel();
+            newModel.Image1 = name;
+            newModel.Image2 = name;
+            //newModel.Score = Score();
+            return View(newModel);
         }
 
-        //public ActionResult blackAndWhite()
+        //public ActionResult Home(string name)
         //{
-        //    ImageReader black_white = new ImageReader();
-        //    black_white.GetImage();
-        //    black_white.pixelImage();
-        //    return View();
+        //    string fileUrl = "/Content/Images/" + name + ".jpg";
+        //    return View((object)fileUrl);
         //}
 
-        
+        public FilePathResult ColorImage(string name)
+        {
+            var dir = Server.MapPath("~/Content/Images");
+            var imagePath = Path.Combine(dir, name + ".jpg");
+            return File(imagePath, "image/jpeg");
+        }
+
+        public FilePathResult blackAndWhite(string name)
+        {
+            var dir = Server.MapPath("~/Content/Images");
+            var imagePath = Path.Combine(dir, name + ".jpg");
+            ImageReader img1 = new ImageReader();
+            img1.pixelImage(imagePath);
+            return File("~/Content/Images/new.bmp", "image/bmp");
+        }
+
+        public string Score()
+        {
+            ScoreReader score = new ScoreReader();
+            var newScore = score.scoreCalculator();
+            return "Algae bloom is: " + newScore + "%";
+        }
     }
 }

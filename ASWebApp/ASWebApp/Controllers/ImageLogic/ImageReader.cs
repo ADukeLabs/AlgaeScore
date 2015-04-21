@@ -14,24 +14,14 @@ namespace ASWebApp.Controllers.ImageControllers
     public class ImageReader
     {
 
-        public ImageReader()
-        {
+        //public ImageReader()
+        //{
             
-        }
+        //}
 
-        public Image GetImage()
+        public Image pixelImage(string imagePath)
         {
-            var newImage = Image.FromFile("~algae_swirls.jpg");
-            return newImage;
-        }
-
-        //public string imageName = Console.ReadLine();
-
-        public Image pixelImage()
-        {
-
-            //var image = (imageName + ".jpg");
-            var image = GetImage();
+            var image = Image.FromFile(imagePath);
             using (var context = image.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
@@ -50,10 +40,15 @@ namespace ASWebApp.Controllers.ImageControllers
                     }
                 }
             }
-            image.Save("~Images/new, ImageFormat.Bmp");
+            image.Save(@"C:\Users\Alex\Documents\GitHub\AlgaeScore\ASWebApp\ASWebApp\Content\Images\new.bmp", ImageFormat.Bmp);
             return image;
         }
 
+        //public byte[] imageToByte(Image img)
+        //{
+        //    ImageConverter converter = new ImageConverter();
+        //    return (byte[])converter.ConvertTo(img, typeof(byte[]));
+        //}
 
     }
 }

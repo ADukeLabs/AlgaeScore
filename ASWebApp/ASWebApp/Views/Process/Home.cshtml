@@ -1,10 +1,16 @@
-﻿
-@{
-    ViewBag.Title = "Home";
-}
+﻿@model  ASWebApp.Models.ImageViewModel
+@*@model string*@
 
-<h2>Home</h2>
+@*@{
+    ViewBag.Title = "Home";
+}*@
+
+<h2>Algae Score</h2>
 
 <div>
-    <img src="@Url.Action("ColorImage")" alt="" />
+    <img src="/Process/ColorImage/@Model.Image1" />
+</div>
+<div>
+    <img src="/Process/blackAndWhite/@Model.Image2" />
+    
 </div>
