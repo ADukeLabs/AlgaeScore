@@ -16,12 +16,12 @@ namespace ASWebApp.Controllers.ImageControllers
         public int whiteScore = 0;
         public int blackScore = 0;
 
-        public decimal scoreCalculator()
+        public string scoreCalculator()
         {
             decimal white = whiteScore;
             decimal black = blackScore;
 
-            var picture = Bitmap.FromFile("new.bmp");
+            var picture = Bitmap.FromFile("~/Content/Images/new.bmp");
             using (var context = picture.CreateUnsafeContext())
             {
                 for (var w = 0; w < context.Width; w++)
@@ -41,7 +41,7 @@ namespace ASWebApp.Controllers.ImageControllers
                 }
             }
             decimal score = Math.Floor((white / (white + black)) * 100);
-            return score;
+            return score.ToString();
         }
     }
 }

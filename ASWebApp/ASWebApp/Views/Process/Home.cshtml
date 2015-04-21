@@ -5,11 +5,12 @@
     ViewBag.Title = "Home";
 }*@
 
-<h2>Home</h2>
+<h2>Algae Score</h2>
 
 <div>
     <img src="/Process/ColorImage/@Model.Image1" />
 </div>
 <div>
     <img src="/Process/blackAndWhite/@Model.Image2" />
+    @Html.Raw(Model.Score);
 </div>

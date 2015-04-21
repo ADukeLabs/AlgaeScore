@@ -48,6 +48,7 @@ namespace ASWebApp.Controllers
             var newModel = new ImageViewModel();
             newModel.Image1 = name;
             newModel.Image2 = name;
+            //newModel.Score = Score();
             return View(newModel);
         }
 
@@ -73,6 +74,11 @@ namespace ASWebApp.Controllers
             return File("~/Content/Images/new.bmp", "image/bmp");
         }
 
-        
+        public string Score()
+        {
+            ScoreReader score = new ScoreReader();
+            var newScore = score.scoreCalculator();
+            return "Algae bloom is: " + newScore + "%";
+        }
     }
 }
